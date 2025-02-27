@@ -1,0 +1,45 @@
+"Perhitungan Gaya Aksial Footing Akibat Pergeseran tiang
+'copyright : Abdul Rochim
+'<hr />
+'<img style="height:350pt; width:350pt;" src="./tampak perspektif.jpg" alt="tampak perspektif.jpg">
+
+'Qi adalah beban tiap tiang ke-i
+'Mx adalah momen yang bekerja memutar sumbu x (dibidang sejajar sumbu y)
+'yi adalah koordinat y tiang ke-i terhadap titik berat grup (dapat bernilai + atau -)
+'My adalah momen yang bekerja memutar sumbu y (dibidang sejajar sumbu x)
+'xi adalah koordinat x tiang ke-i terhadap titik berat grup (dapat bernilai + atau -)
+ 
+'Perhitungan beban struktur atas
+'Berat lantai kendaraan -'w_pelat = ? {250}kN
+'Berat girder -'w_girder = ? {200}kN
+'Jumlah girder -'n_girder = ? {5}
+'Berat pierhead -'w_pierhead = ? {1000}kN
+'Berat pier -'w_pier = ? {800}kN
+'Jumlah pier -'n_pier = ? {1}
+'Beban kendaraan -'q_udl = ? {6000}kN
+'Beban total -'Q = w_pelat + w_girder*n_girder + w_pierhead + w_pier*n_pier + q_udl
+
+'Beban tiang ke-i yang ditinjau -'Q_i = ? {2000}kN
+'Jumlah tiang dalam 1 grup pilecap -'N = ? {6}
+'sehingga persamaan momen yang bekerja menjadi:
+'jarak tiang yang ditinjau terhadap titik berat grup -'x_i = ? {3}m'pada koordinat x
+'Jumlah kuadrat jarak tiang yang ditinjau terhadap koordinat x -'Σ_x_kuadrat = ? {200}m^2
+'jarak tiang yang ditinjau terhadap titik berat grup -'y_i = ? {9}m'pada koordinat y
+'Jumlah kuadrat jarak tiang yang ditinjau terhadap koordinat y -'Σ_y_kuadrat = ? {400}m^2
+'Dari persamaan beban tiang diatas dicari nilai Mx dan My (dimana asumsi arah momen berbeda diambil 30% dari momen tinjauan sesuai dengan aturan kombinasi pembebanan dalam SNI 1725).
+Mx = [(Q_i - Q/N)/(100%*y_i/Σ_y_kuadrat + 30%*x_i/Σ_x_kuadrat)]
+My = [(Q_i - Q/N)/(30%*y_i/Σ_y_kuadrat + 100%*x_i/Σ_x_kuadrat)]
+
+'Menghitung nilai Qi yang bergeser:
+x_i_baru = ? {2.8}m
+y_i_baru = ? {9}m
+
+'Asumsi bahwa arah momen 30% yang ditinjau:
+Q_i_x = Q/N + (100%*Mx*y_i_baru)/Σ_y_kuadrat + (30%*Mx*x_i_baru)/Σ_x_kuadrat
+Q_i_y = Q/N + (30%*My*y_i_baru)/Σ_y_kuadrat + (100%*My*x_i_baru)/Σ_x_kuadrat
+Q_i_baru = max(Q_i_x; Q_i_y)
+
+
+
+
+
